@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./output.css">
+    <script src="main.js" defer></script>
+    <title>Hola</title>
+</head>
+
+<body>
+    <main class="flex flex-col">
+        <span id="pop" class="hidden bg-orange-300 fixed top-10 left-1/3 w-1/3 h-[20dvh]"> 
+            <h2 class="text-center h-full w-full text-gray-600 text-2xl flex flex-col justify-center items-center">Rellene todos los campos del formulario</h2>
+        </span>
+    
+        <section class="
+        bg-blue-50
+        w-full
+        h-[100dvh]
+        flex
+        flex-col">
+            <form class="h-[70%] md:h-[100%] flex flex-col gap-8 md:gap-2 justify-center items-center">
+                <div class="flex flex-col pb-2">
+                    <label class="text-base font-bold" for="titulo">Título</label>
+                    <input class="px-2 py-1 border-solid border-gray-700 border" type="text" id="titulo" required />
+                </div>
+
+                <div class="flex flex-col pb-2">
+                    <label class="text-base font-bold" for="subtitulo">Subtitulo</label>
+                    <input class="px-2 py-1 border-solid border-gray-700 border" type="text" id="subtitulo" required />
+                </div>
+
+                <div class="flex flex-col pb-2">
+                    <label class="text-base font-bold" for="titulo">Descripción</label>
+                    <input class="px-2 py-1 border-solid border-gray-700 border" type="text" id="descripcion" />
+                </div>
+
+                <div>
+                    <button id="enviar" class="transition ease-out delay-150 w-80 h-10 bg-blue-100 border-black border rounded-md
+                        hover:bg-blue-200 hover:scale-105">Crear artículo
+                    </button>
+                </div>
+            </form>
+
+            <section class="h-auto px-2 py-1 flex justify-around flex-wrap gap-1 ">
+                <div id="art1" class="
+                h-40
+                py-3
+                px-5
+                w-1/4
+              bg-blue-400
+                overflow-hidden
+                text-center
+                flex 
+                justify-center
+                flex-wrap
+                flex-row
+                flex-grow">
+                    <h1 id="caja-titulo" class="text-2xl font-bold text-gray-800 text-wrap h-1/4 w-full">Articulo</h1>
+                    <h3 class=" max-h-7 truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+                        quam ducimus id illo, obcaecati ipsam eos porro ex tenetur voluptatem exercitationem,
+                        voluptatibus numquam sint, sequi doloribus provident omnis! Optio, tempore? </h3>
+                    <button class="h-1/4
+                     w-52
+                   bg-blue-50 border
+                   border-black
+                      rounded-xl">
+                        Ver
+                    </button>
+                </div>
+
+            </section>
+        </section>
+
+    </main>
+</body>
+
+</html>

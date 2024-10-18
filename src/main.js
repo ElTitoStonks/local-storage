@@ -57,8 +57,7 @@ function getElements() {
                 h-40
                 py-3
                 px-5
-                w-1/4
-                md:w-full
+                w-full
               bg-blue-400
                 overflow-hidden
                 text-center
@@ -66,7 +65,7 @@ function getElements() {
                 justify-center
                 flex-wrap
                 flex-col
-                flex-grow
+
                 content-center
 
                 ">

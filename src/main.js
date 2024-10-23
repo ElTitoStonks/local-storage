@@ -32,6 +32,14 @@ function storageElements() {
     });
 }
 
+function cerrarPopUp(id) {
+    let popUp = document.querySelector(`#${id}`);
+    if (popUp.classList.contains("fixed")) {
+        popUp.classList.remove("fixed");
+        popUp.classList.add("hidden");
+    }
+};
+
 function getElements() {
     let contador = localStorage.length;
     let caja_contenido = document.querySelector("#caja1");
@@ -58,8 +66,8 @@ function getElements() {
                     <h1 class="caja-titulo text-2xl font-bold text-gray-800 text-wrap h-1/4 w-full">${legible.titulos}</h1>
                     <h3 class=" max-h-7 truncate">${legible.subtitulos}</h3>
                     <button id="btn_pop_up${i}" class="h-1/4 w-full bg-blue-50 border border-black rounded-xl">
-                        Ver<span id="pop_btn${i}" class="hidden bg-blue-300 fixed top-14 md:left-1/3 left-4 w-[90dvw] md:w-1/3 h-[60dvh] border border-black rounded-3xl shadow-lg shadow-gray-600">
-                        <img src="./cross.svg" alt="cerrar" class="w-6 h-6 absolute right-0 cursor-pointer" onclick="document.querySelector('#pop_btn').classList.add('hidden')">
+                        Ver<span id="pop_btn${i}" class="pop hidden bg-blue-300 fixed top-14 md:left-1/3 left-4 w-[90dvw] md:w-1/3 h-[60dvh] border border-black rounded-3xl shadow-lg shadow-gray-600">
+                        <img src="./cross.svg" alt="cerrar" class="img__cross${i} w-auto h-8 absolute right-5 top-3 cursor-pointer" onclick="cerrarPopUp('pop_btn${i}')">
                         <h1 class="text-2xl font-bold">${legible.titulos}</h1>
                         <h3>${legible.subtitulos}</h3>
                         <p>${legible.descripciones}</p>

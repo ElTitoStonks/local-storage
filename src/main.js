@@ -9,6 +9,7 @@ let popUp = document.querySelector("#pop");
 let caja_titulo = document.querySelector(".caja-titulo");
 
 function storageElements() {
+    // Function to store the elements in the local storage
     btn.addEventListener("click", (e) => {
         // e.preventDefault();
         if (titulo.value !== "" && subtitulo.value !== "" && descripcion.value !== "") {
@@ -21,32 +22,20 @@ function storageElements() {
 
             localStorage.setItem(`info ${contador + 1}`, JSON.stringify(storage));
 
-        } else {
-            if (popUp.classList.contains("hidden")) {
-                popUp.classList.remove("hidden");
-                setTimeout(() => {
-                    popUp.classList.add("hidden");
-                }, 2000);
-            }
-        }
+        };
     });
 }
 
-function cerrarPopUp(id) {
-    let popUp = document.querySelector(`#${id}`);
-    if (popUp.classList.contains("fixed")) {
-        popUp.classList.remove("fixed");
-        popUp.classList.add("hidden");
-    }
-};
-
+// function to get the elements from the local storage
 function getElements() {
     let contador = localStorage.length;
     let caja_contenido = document.querySelector("#caja1");
     for (let i = 1; i <= contador; i++) {
         let dataStorage = localStorage.getItem(`info ${i}`);
+        // condition to check if there is any data in the local storage
         if (dataStorage) {
             let legible = JSON.parse(dataStorage);
+            // if exists the data in local storage, the data is shown in the screen
             caja_contenido.innerHTML += `
                 <div class="
                     art
@@ -67,7 +56,7 @@ function getElements() {
                     <h3 class=" max-h-7 truncate">${legible.subtitulos}</h3>
                     <button id="btn_pop_up${i}" class="h-1/4 w-full bg-blue-50 border border-black rounded-xl">
                         Ver<span id="pop_btn${i}" class="pop hidden bg-blue-300 fixed top-14 md:left-1/3 left-4 w-[90dvw] md:w-1/3 h-[60dvh] border border-black rounded-3xl shadow-lg shadow-gray-600">
-                        <img src="./cross.svg" alt="cerrar" class="img__cross${i} w-auto h-8 absolute right-5 top-3 cursor-pointer" onclick="cerrarPopUp('pop_btn${i}')">
+                        <img src="./cross.svg" alt="cerrar" class="img__cross${i} w-auto h-8 absolute right-5 top-3 cursor-pointer>
                         <h1 class="text-2xl font-bold">${legible.titulos}</h1>
                         <h3>${legible.subtitulos}</h3>
                         <p>${legible.descripciones}</p>
@@ -77,15 +66,20 @@ function getElements() {
         }
     }
 
-    // Asignar evento de click a cada botón para mostrar el pop-up con la información
+    // asssing the event listener to the pop-up button
     for (let i = 1; i <= contador; i++) {
         let btnPopUp = document.querySelector(`#btn_pop_up${i}`);
         let popUp = document.querySelector(`#pop_btn${i}`);
+        let cross = document.querySelector(`.img__cross${i}`);
 
         btnPopUp.addEventListener("click", () => {
             if (popUp.classList.contains("hidden")) {
                 popUp.classList.remove("hidden");
-                // El pop-up se oculta después de 3 segundos
+            } else if (!popUp.classList.contains("hidden")) {
+                cross.addEventListener("click", () => {
+                    popUp.classList.add("");//add custom class to hide the pop-up
+                    // popUp.classList.remove("hidden");
+                });
             }
         });
     }

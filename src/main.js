@@ -31,6 +31,9 @@ function getElements() {
                 <div class="
                     art h-40 py-3 px-5 w-full bg-blue-400 overflow-hidden text-center flex justify-center flex-wrap flex-col content-center relative
                 ">
+                <span class="absolute w-8 right-3 top-2 cursor-pointer transition-all  ease-in-out duration-700 hover:rotate-180">
+                    <img src="./cross.svg" class="cross-c${i}">
+                </span>
                     <h1 class="caja-titulo text-2xl font-bold text-gray-800 text-wrap h-1/4 w-full">${legible.titulos}</h1>
                     <h3 class="max-h-7 truncate">${legible.subtitulos}</h3>
                     <button id="btn_pop_up${i}" class="h-1/4 w-full bg-blue-50 border border-black rounded-xl">
@@ -56,6 +59,7 @@ function getElements() {
         let btnPopUp = document.querySelector(`#btn_pop_up${i}`);
         let popUp = document.querySelector(`#pop_btn${i}`);
         let cross = document.querySelector(`.img__cross${i}`);
+        let crosss = document.querySelector(`.cross-c${i}`);
 
         btnPopUp.addEventListener("click", () => {
             popUp.classList.add("pop");
@@ -67,36 +71,13 @@ function getElements() {
             popUp.classList.add("pop__hidden");
             popUp.classList.remove("pop");
         });
+
+        crosss.addEventListener("click", () => {
+            localStorage.removeItem(`info ${i}`);
+            window.location.reload();
+        });
     }
 }
 
-function deleteElements() {
-    //Get elements from local storage
-    let box = document.querySelectorAll(".art");
-    let elementss = box.length;
-
-    console.log(elementss);
-
-    box.forEach(element => {
-        element.innerHTML += `
-            <span class="absolute w-8 right-3 top-2 cursor-pointer transition-all  ease-in-out duration-700 hover:rotate-180">
-            <img src="./cross.svg" class="cross-c">
-            </span>
-        `;
-    });
-
-    let cross = document.querySelectorAll(".cross-c");
-
-    cross.forEach(element => { 
-        element.addEventListener("click", () => {
-            localStorage.removeItem(`info ${elementss}`);
-            window.location.reload();
-        });
-    });
-
-};
-
-
 getElements();
 storageElements();
-deleteElements();

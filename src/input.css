@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.pop {
+    background-color: #93c5fd; /* bg-blue-300 */
+    position: fixed;
+    top: 3.5rem; /* top-14 */
+    left: 4%; /* left-4 */
+    width: 90vw; /* w-[90dvw] */
+    min-height: 60vh; /* h-[60dvh] */
+    height: auto;
+    border: 1px solid black; /* border border-black */
+    border-radius: 1.5rem; /* rounded-3xl */
+    box-shadow: 0px 10px 15px rgba(75, 85, 99, 0.6); /* shadow-lg shadow-gray-600 */
+    padding: 0 3rem;
+    overflow-wrap: break-word;
+    z-index: 1000;
+}
+
+.pop__hidden {
+    display: none;
+} 
